@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/redraws.ts"],
+  "sourcesContent": ["import type { ExtensionAPI } from \"@mariozechner/pi-coding-agent\";\nimport { Text } from \"@mariozechner/pi-tui\";\n\nexport default function (pi: ExtensionAPI) {\n\tpi.registerCommand(\"tui\", {\n\t\tdescription: \"Show TUI stats\",\n\t\thandler: async (_args, ctx) => {\n\t\t\tif (!ctx.hasUI) return;\n\t\t\tlet redraws = 0;\n\t\t\tawait ctx.ui.custom<void>((tui, _theme, _keybindings, done) => {\n\t\t\t\tredraws = tui.fullRedraws;\n\t\t\t\tdone(undefined);\n\t\t\t\treturn new Text(\"\", 0, 0);\n\t\t\t});\n\t\t\tctx.ui.notify(`TUI full redraws: ${redraws}`, \"info\");\n\t\t},\n\t});\n}\n"],
+  "mappings": ";AACA,SAAS,YAAY;AAEN,SAAR,gBAAkB,IAAkB;AAC1C,KAAG,gBAAgB,OAAO;AAAA,IACzB,aAAa;AAAA,IACb,SAAS,OAAO,OAAO,QAAQ;AAC9B,UAAI,CAAC,IAAI,MAAO;AAChB,UAAI,UAAU;AACd,YAAM,IAAI,GAAG,OAAa,CAAC,KAAK,QAAQ,cAAc,SAAS;AAC9D,kBAAU,IAAI;AACd,aAAK,MAAS;AACd,eAAO,IAAI,KAAK,IAAI,GAAG,CAAC;AAAA,MACzB,CAAC;AACD,UAAI,GAAG,OAAO,qBAAqB,OAAO,IAAI,MAAM;AAAA,IACrD;AAAA,EACD,CAAC;AACF;",
+  "names": []
+}

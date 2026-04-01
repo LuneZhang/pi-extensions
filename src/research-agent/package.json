@@ -1,0 +1,13 @@
+{
+  "name": "research-agent",
+  "private": true,
+  "description": "Full-stack autonomous research agent for ML/AI and CFD domains",
+  "dependencies": {
+    "@sinclair/typebox": "^0.34.0",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "pi": {
+    "extensions": ["./src/index.ts"]
+  }
+}
